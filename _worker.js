@@ -75,7 +75,10 @@ export default {
       }
     }
 
-    // 2. Static Assets: Serve public HTML/CSS files
-    return env.ASSETS.fetch(request);
+    // 2. Static Assets: Serve public HTML/CSS files safely
+    if (env.ASSETS) {
+      return env.ASSETS.fetch(request);
+    }
+    return new Response("Asset not found", { status: 404 });
   }
 };
