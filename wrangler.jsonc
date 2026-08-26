@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "review",
+  "main": "_worker.js",
+  "compatibility_date": "2026-08-25",
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  },
+  // Non-secret config can live here safely (this file is typically committed to git).
+  "vars": {
+    // Bare project URL only — do NOT include /rest/v1/, the worker appends that itself.
+    "SUPABASE_URL": "https://eujpfzuxizvrvoaejvah.supabase.co"
+  }
+  // SUPABASE_SERVICE_ROLE_KEY is intentionally NOT here.
+  // Set it as a Worker secret instead, so it never ends up in git or in this file:
+  //
+  //   Production:  npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY
+  //                (paste the key when prompted)
+  //
+  //   Local dev:   create a file named .dev.vars (add it to .gitignore) containing:
+  //                SUPABASE_SERVICE_ROLE_KEY=your-key-here
+  //                wrangler dev will load it automatically.
+}
