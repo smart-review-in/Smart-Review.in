@@ -43,6 +43,22 @@
     box-shadow: 0 8px 30px rgba(0,0,0,0.35);
   }
 
+  /* Powered By Header Branding */
+  .powered-by {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 10px;
+  }
+
+  .powered-by span {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
   #bizName {
     text-align: center;
     font-size: 20px;
@@ -93,11 +109,12 @@
     margin-top: 16px;
   }
 
+  /* Spacing added below Select Highlights title */
   #tagSectionTitle {
     font-size: 14px;
     font-weight: 600;
     color: var(--text-muted);
-    margin: 0;
+    margin: 0 0 12px;
   }
 
   #tagsContainer {
@@ -173,6 +190,9 @@
 
 <div class="container">
   <div class="card">
+    <!-- Added Powered by branding -->
+    <div class="powered-by">Powered by <span>smart-review.in</span></div>
+    
     <h1 id="bizName">Loading…</h1>
     <p class="subtitle">Tap a star to get started</p>
 
@@ -268,7 +288,7 @@ function showAccessDenied(message) {
   const msg = document.createElement("p");
   msg.style.color = "var(--text-muted)";
   msg.style.fontSize = "14px";
-  msg.textContent = message; // set via textContent, never innerHTML
+  msg.textContent = message;
 
   card.appendChild(heading);
   card.appendChild(msg);
